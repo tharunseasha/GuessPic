@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+.winner{
+  color: rgb(238, 8, 54);
+  background-image: none;
+}
+.lost{
+  top: 400px;
+  left: 600px;
+  background-image: none;
+  color: rgb(174, 0, 255);
+}
+.hidden {
+  display: none;
+}
+body {
+  font-family: "Hachi Maru Pop", cursive;
+ color: beige;
+  background-image: url("images/bg.jpg");
+}
+h1 {
+  position: absolute;
+  left: 500px;
+}
+.answer {
+  position: absolute;
+  height: 200px;
+  width: 310px;
+  border-radius: 40px;
+  top: 150px;
+  left: 590px;
+}
+
+.clck {
+  position: absolute;
+  height: 110px;
+  width: 200px;
+  border-radius: 500px;
+  top: 450px;
+}
+.dog {
+  left: 100px;
+}
+.tiger {
+  left: 350px;
+}
+.lion {
+  left: 600px;
+}
+.squeek {
+  left: 850px;
+}
+.eagle {
+  left: 1100px;
+}
+.btn:focus {
+  outline: none;
+}
+.btn {
+  position: absolute;
+  border-radius: 15px;
+  height: 70px;
+  width: 100px;
+  font-family: "Hachi Maru Pop", cursive;
+  font-weight: bolder;
+  font-size: 15px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgb(8, 93, 204);
+}
+
+.hint {
+  top: 30px;
+  right: 150px;
+}
+.hmsg {
+  top: 100px;
+  right: 140px;
+  text-align: right;
+  position: absolute;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.newgame {
+  top: 200px;
+  left: 200px;
+  height: 110px;
+  width: 130px;
+}
+
+
+.scr {
+  top: 290px;
+  left: 1200px;
+  position: absolute;
+  font-size: 200%;
+  font-weight: bolder;
+}
+.val {
+  top: 290px;
+  left: 1450px;
+  position: absolute;
+  font-size: 200%;
+  font-weight: bolder;
+}
+.msg {
+  top: 600px;
+  left: 570px;
+  position: absolute;
+  font-size: 200%;
+  font-weight: bolder;
+}

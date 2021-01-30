@@ -1,0 +1,297 @@
+//JAVA SCRIPT
+"use strict";
+let chances = 2;
+
+let playing = true;
+
+let num = Math.trunc(Math.random() * 5) + 1;
+document.querySelector(".msg").textContent ="🤩 Choose From The Above Image";
+document.querySelector(".hmsg").classList.add("hidden");
+
+function won(){
+  document.querySelector(".msg").textContent = `😍 Super won the game`;
+  document.querySelector(".dog").classList.add("hidden");
+  document.querySelector(".lion").classList.add("hidden");
+  document.querySelector(".tiger").classList.add("hidden");
+  document.querySelector(".eagle").classList.add("hidden");
+  document.querySelector(".squeek").classList.add("hidden");
+  document.querySelector("body").classList.add("winner")
+  document.querySelector("body").classList.remove("lost");
+  
+}
+function Lost(){
+  document.querySelector(".dog").classList.add("hidden");
+  document.querySelector(".lion").classList.add("hidden");
+  document.querySelector(".tiger").classList.add("hidden");
+  document.querySelector(".eagle").classList.add("hidden");
+  document.querySelector(".squeek").classList.add("hidden");
+  document.querySelector(".answer").classList.add("hidden");
+  document.querySelector(".hmsg").classList.add("hidden");  
+  document.querySelector("body").classList.add("lost");
+  document.querySelector(".answer").classList.remove("hidden");
+  document.querySelector(".answer").src="emoji.png";
+}
+
+
+let imgButton = document.querySelectorAll(".clck");
+for(let i =0;i<imgButton.length;i++){
+  let val = parseInt(imgButton[i].value);
+  imgButton[i].addEventListener("click",function(){
+    if(chances<=2&chances>0){
+      if(num==val){
+        document.querySelector(".answer").src=`${val}.jpg`;
+        won();
+      }else{
+        imgButton[i].classList.add('hidden')
+        document.querySelector(".msg").textContent = `🙄 Wrong animal...Try Again`;
+        chances--;
+        document.querySelector(".val").textContent = chances;
+      }
+      if(chances==0){
+        document.querySelector(".msg").textContent = `😣 Sorry You Lost The Game`;
+        Lost();
+      }
+    }
+    
+    
+  });
+}
+
+document.querySelector('.newgame').addEventListener("click",function(){
+  num = Math.trunc(Math.random() * 5) + 1;
+  chances = 2;
+  document.querySelector("body").classList.remove("lost");
+  document.querySelector("body").classList.remove("winner")
+  document.querySelector(".val").textContent = chances;
+  document.querySelector(".hmsg").classList.add("hidden");
+  document.querySelector(".dog").classList.remove("hidden");
+  document.querySelector(".lion").classList.remove("hidden");
+  document.querySelector(".tiger").classList.remove("hidden");
+  document.querySelector(".eagle").classList.remove("hidden");
+  document.querySelector(".squeek").classList.remove("hidden");
+  document.querySelector(".answer").classList.remove("hidden");
+  document.querySelector(".answer").src = "question mark.jpg";
+  document.querySelector(".msg").textContent ="🤩 Choose From The Above Image";
+  
+
+});
+document.querySelector('.hint').addEventListener("click",function(){
+  document.querySelector(".hmsg").classList.remove("hidden");
+    if(chances==2){
+      document.querySelector(".hmsg").textContent =" 😋 You Should have Only 1 Chance To Activate Hint";  
+    } else{
+      if(num==1){
+        document.querySelector(".hmsg").textContent =" Some Times He Is Cute 😘";
+      }else if(num==2){
+        document.querySelector(".hmsg").textContent =" 😎 Now He Is Both Domestic And Wild";
+      }else if(num==3){
+        document.querySelector(".hmsg").textContent =" 🥱 Lazy Guy But Gets Praised";
+      }else if(num==4){
+        document.querySelector(".hmsg").textContent ="He 🤣 Sings Well....";
+      }else{
+        document.querySelector(".hmsg").textContent ="Cant 🤨 Catch Him Easily";
+      }
+    }
+    
+
+})
+
+<------------------------------------------------------------------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>image game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Guess The Correct Animal</h1>
+    </header>
+    <div>
+      <img  class="answer" src="question mark.jpg" />
+    </div>
+    <div>
+      <input type="button" class="btn newgame" value="NewGame" />
+      <input type="button" class="btn hint" value="Hint" />
+    </div>
+    <div>
+      <input
+        type="image"
+        name="dog"
+        src="1.jpg"
+        alt="dog"
+        value="1"
+        class="clck dog"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="5.jpg"
+        alt="dog"
+        value="5"
+        class="clck eagle"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="2.jpg"
+        alt="dog"
+        value="2"
+        class="clck tiger"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="3.jpg"
+        alt="dog"
+        value="3"
+        class="clck lion"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="4.jpg"
+        alt="dog"
+        value="4"
+        class="clck squeek"
+      />
+    </div>
+    <P class="scr">CHANCES = </P>
+    <p class = "val">2</p>
+    <P class="hmsg">😁 To display hint messages</P>
+    <p class = "msg">😉Try to complete</p>
+    <script src="actions.js"></script>
+  </body>
+</html>
+<-------------------------------------------------------------------------------------------------------------->
+//CSS
+*{
+  margin: 0;
+  padding: 0;
+}
+.winner{
+  color: rgb(238, 8, 54);
+  background-image: none;
+}
+.lost{
+  top: 400px;
+  left: 600px;
+  background-image: none;
+  color: rgb(174, 0, 255);
+}
+.hidden {
+  display: none;
+}
+body {
+  font-family: "Hachi Maru Pop", cursive;
+ color: beige;
+  background-image: url("bg.jpg");
+}
+h1 {
+  position: absolute;
+  left: 500px;
+}
+.answer {
+  position: absolute;
+  height: 200px;
+  width: 310px;
+  border-radius: 40px;
+  top: 150px;
+  left: 590px;
+}
+
+.clck {
+  position: absolute;
+  height: 110px;
+  width: 200px;
+  border-radius: 500px;
+  top: 450px;
+}
+.dog {
+  left: 100px;
+}
+.tiger {
+  left: 350px;
+}
+.lion {
+  left: 600px;
+}
+.squeek {
+  left: 850px;
+}
+.eagle {
+  left: 1100px;
+}
+.btn:focus {
+  outline: none;
+}
+.btn {
+  position: absolute;
+  border-radius: 15px;
+  height: 70px;
+  width: 100px;
+  font-family: "Hachi Maru Pop", cursive;
+  font-weight: bolder;
+  font-size: 15px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgb(8, 93, 204);
+}
+
+.hint {
+  top: 30px;
+  right: 150px;
+}
+.hmsg {
+  top: 100px;
+  right: 140px;
+  text-align: right;
+  position: absolute;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.newgame {
+  top: 200px;
+  left: 200px;
+  height: 110px;
+  width: 130px;
+}
+
+
+.scr {
+  top: 290px;
+  left: 1200px;
+  position: absolute;
+  font-size: 200%;
+  font-weight: bolder;
+}
+.val {
+  top: 290px;
+  left: 1450px;
+  position: absolute;
+  font-size: 200%;
+  font-weight: bolder;
+}
+.msg {
+  top: 600px;
+  left: 570px;
+  position: absolute;
+  font-size: 200%;
+  font-weight: bolder;
+}

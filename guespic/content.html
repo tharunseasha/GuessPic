@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>image game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" /> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Guess The Correct Animal</h1>
+    </header>
+    <div>
+      <img  class="answer" src="IMAGES/question mark.jpg" />
+    </div>
+    <div>
+      <input type="button" class="btn newgame" value="NewGame" />
+      <input type="button" class="btn hint" value="Hint" />
+    </div>
+    <div>
+      <input
+        type="image"
+        name="dog"
+        src="IMAGES/1.jpg"
+        alt="dog"
+        value="1"
+        class="clck dog"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="IMAGES/5.jpg"
+        alt="dog"
+        value="5"
+        class="clck eagle"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="IMAGES/2.jpg"
+        alt="dog"
+        value="2"
+        class="clck tiger"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="IMAGES/3.jpg"
+        alt="dog"
+        value="3"
+        class="clck lion"
+      />
+    </div>
+    <input
+        type="image"
+        name="dog"
+        src="IMAGES/4.jpg"
+        alt="dog"
+        value="4"
+        class="clck squeek"
+      />
+    </div>
+    <P class="scr">CHANCES = </P>
+    <p class = "val">2</p>
+    <P class="hmsg">😁 To display hint messages</P>
+    <p class = "msg">😉Try to complete</p>
+    <script src="actions.js"></script>
+  </body>
+</html>
